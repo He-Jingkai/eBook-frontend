@@ -1,7 +1,8 @@
 import React from 'react';
-import Chat, { Bubble, Card, CardText } from '@chatui/core';
+import Chat, { Bubble, Card, CardText, Button, Popup} from '@chatui/core';
 import '@chatui/core/es/styles/index.less';
 import '@chatui/core/dist/index.css';
+import { List, Typography, Divider } from 'antd';
 
 var websocket;
 
@@ -11,6 +12,8 @@ export class ChatRoom extends React.Component {
         this.state={
             messages:[],
             username:"xxx",
+            userList:[],
+            open:false
         }
     }
 
@@ -71,10 +74,15 @@ export class ChatRoom extends React.Component {
                 type: 'join',
                 username: msg.username,
             }
-        else
+        else if(msg.type==='leave')
             messageNow={
                 type: 'leave',
                 username: msg.username,
+            }
+        else
+            messageNow={
+                type: 'users',
+                userList: msg.userList,
             }
         let messagePrevious=this.state.messages
         messagePrevious.push(messageNow)
@@ -99,9 +107,17 @@ export class ChatRoom extends React.Component {
 
             messagePrevious.push(messageNew)
             this.setState({messages:messagePrevious})
-            // TODO: 发送请求
+
             websocket.send(JSON.stringify(messageSend));
         }
+    }
+
+    handleOpen=()=> {
+        this.setState({open:true})
+    }
+
+    handleClose=()=> {
+        this.setState({open:false})
     }
 
     renderMessageContent=(msg)=> {
@@ -133,6 +149,23 @@ export class ChatRoom extends React.Component {
                     <Card size="xl">
                         <CardText>{msg.username+"离开了聊天室"}</CardText>
                     </Card>
+                );
+            case 'users':
+                return (
+                    <div>
+                            <div>
+                                <List
+                                    header={<div>当前在线人员</div>}
+                                    bordered
+                                    dataSource={msg.userList}
+                                    renderItem={item => (
+                                        <List.Item>
+                                            {item}
+                                        </List.Item>
+                                    )}
+                                />
+                            </div>
+                    </div>
                 );
             default:
                 return null;
