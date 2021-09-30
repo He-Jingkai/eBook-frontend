@@ -20,7 +20,7 @@ import "../CSS/uniform.css"
 import "../CSS/PIE.htc"
 import {HeadOfPage,SearchLi} from "../components/head"
 import {HeadAdv,RightAdv,NewAdded} from "../components/home"
-
+import {Layout} from "antd";
 
 
 const check_out={}
@@ -67,7 +67,20 @@ export class HomePages extends React.Component{
     }
 
     componentWillMount(){
-
+        fetch("http://localhost:8080/increaseVisitorCount")
+            .then(() => {
+                fetch("http://localhost:8080/getVisitorCount")
+                    .then(response => response.json())
+                    .then(data => {
+                        this.setState({
+                            visitorCount:parseInt(data)
+                        });
+                    }).catch(function (ex) {
+                    console.log('parsing failed', ex)
+                })
+            }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
         this.setState({
             num:localStorage.getItem("num"),
             total:localStorage.getItem("total"),
@@ -114,6 +127,7 @@ export class HomePages extends React.Component{
                         </div>
                     </section>
                 </div>
+                <Layout.Footer style={{ textAlign: 'center' }}>访客量: {this.state.visitorCount}</Layout.Footer >
             </div>
         );
     }
