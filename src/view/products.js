@@ -72,8 +72,8 @@ export class BooksPage extends React.Component{
             .then(data => {
                 // alert("data:" + data);
                 this.setState({
-                    books: data.content,
-                    totalSize:data.totalElements
+                    books: data.books,
+                    totalSize:data.total,
                 });
             }).catch(function (ex) {
             console.log('parsing failed', ex)
@@ -82,7 +82,6 @@ export class BooksPage extends React.Component{
         this.setState({
                 num:localStorage.getItem("num"),
                 total:localStorage.getItem("total"),
-
         })
     }
 
@@ -94,8 +93,13 @@ export class BooksPage extends React.Component{
                 .then(data => {
                     // alert("data:" + data);
                     this.setState({
-                        books: data.content,
-                        totalSize:data.totalElements,
+                        // books: data.content,
+                        // totalSize:data.totalElements,
+                        // page: 1,
+                        // search:false,
+                        // needle:""
+                        books: data.books,
+                        totalSize:data.total,
                         page: 1,
                         search:false,
                         needle:""
@@ -140,7 +144,7 @@ export class BooksPage extends React.Component{
                                                         .then(response => response.json())
                                                         .then(data => {
                                                             this.setState({
-                                                                books: data.content,
+                                                                books: data.books,
                                                                 page: page,
                                                             });
                                                         }).catch(function (ex) {
