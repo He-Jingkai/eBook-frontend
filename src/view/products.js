@@ -6,7 +6,7 @@ import "../CSS/jquery.bxslider.css"
 import "../CSS/screen.css"
 import "../CSS/uniform.css"
 import "../CSS/PIE.htc"
-import {HeadOfPage,Bar,Page} from "../components/head"
+import {HeadOfPage,Bar} from "../components/head"
 import {Book} from"../components/books_products"
 import {Input} from "antd";
 import { Pagination } from 'antd';
