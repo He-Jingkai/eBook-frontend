@@ -123,6 +123,40 @@ export class BooksPage extends React.Component{
             })
     };
 
+    query = (e) => {
+        let needle = e.target.value.toLowerCase();
+        if (!needle)
+            fetch("http://localhost:8080/bookspage?pageNum=1")
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({
+                        books: data.books,
+                        totalSize:data.total,
+                        page: 1,
+                        search:false,
+                        query:false,
+                        needle:""
+                    });
+                }).catch(function (ex) {
+                console.log('parsing failed', ex)
+            })
+        else
+            fetch("http://localhost:8080/query?needle="+needle)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({
+                        books: data,
+                        totalSize:8,
+                        page: 1,
+                        search:false,
+                        query:true,
+                        needle:needle
+                    });
+                }).catch(function (ex) {
+                console.log('parsing failed', ex)
+            })
+    };
+
     render() {
         return (
             <div id="wrapper">
@@ -132,7 +166,11 @@ export class BooksPage extends React.Component{
                         <div className="content">
                            <Bar page={this.state.name} />
                             <div style={{ marginBottom: 16 }} onChange ={this.search}>
-                                <Input addonBefore='Book Name' id="searchbar"
+                                <Input addonBefore='Book Name' id="searchbar" disabled={this.state.query}
+                                       defaultValue="" />
+                            </div>
+                            <div style={{ marginBottom: 16 }} onChange ={this.query}>
+                                <Input addonBefore='full text search in description ' id="searchbar" disabled={this.state.search}
                                        defaultValue="" />
                             </div>
                             <BooksPageList books={this.state.books}/>
