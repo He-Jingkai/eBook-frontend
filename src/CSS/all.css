@@ -7,7 +7,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -18,7 +18,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -46,13 +46,13 @@ table {
 	border-spacing: 0;
 }
 
-a[href], label[for], select, 
+a[href], label[for], select,
 input[type=checkbox], input[type=radio] {
 	cursor: pointer;
 	font-family: 'Varela Round', sans-serif;
 }
 
-button, input[type=button], input[type=image], 
+button, input[type=button], input[type=image],
 input[type=reset], input[type=submit] {
 	padding: 0!important;
 	overflow: visible!important;
@@ -69,10 +69,10 @@ input[type=url], input[type=password], input[type=text], input[type=email], inpu
      box-sizing: border-box;-webkit-box-sizing: border-box; -moz-box-sizing: border-box!important;
 }
 
-button::-moz-focus-inner, 
-input[type=button]::-moz-focus-inner, 
-input[type=image]::-moz-focus-inner, 
-input[type=reset]::-moz-focus-inner, 
+button::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=image]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
 input[type=submit]::-moz-focus-inner {
 	border: 0!important;
 	font-family: 'Varela Round', sans-serif!important;
@@ -158,7 +158,7 @@ a:hover{text-decoration:underline;}
 }
 .tools-nav{
 	float: left;
-	width: 200px;
+	width: 300px;
 	margin: 20px 45px 0 0;
 }
 .tools-nav li{
@@ -228,7 +228,7 @@ a:hover{text-decoration:underline;}
 	display: block;
 	text-shadow: 1px 1px 2px #141211;
 	text-align: center;
-	
+
 }
 #nav ul a:hover,#nav ul a.active{
 	background: #0a0908; /* Old browsers */
@@ -556,7 +556,7 @@ a:hover{text-decoration:underline;}
 	float: left;
 	padding: 0 20px 0 0;
 }
-.form-sort .btn.pink {	
+.form-sort .btn.pink {
 	padding: 0 14px;
 	border: none;
 	border-radius: 5px;
@@ -749,10 +749,10 @@ div.selector select {
 	color: #ffffff;
 	font-size: 16px;
 	line-height: 43px;
-	
+
 }
 .list_table .braun span{
-	
+
 	display: block;
 }
 .list_table .braun.first{
@@ -777,13 +777,13 @@ div.selector select {
 .list_table  .white.first{
 	width: 48%;
 	padding:10px 45px 10px 10px;
-	border-left:1px solid #fffefc; 
-	border-right:1px solid #f7f6f4; 
-	border-bottom:1px solid #f8f7f6; 
+	border-left:1px solid #fffefc;
+	border-right:1px solid #f7f6f4;
+	border-bottom:1px solid #f8f7f6;
 }
 .list_table  .white.two,.list_table .white.three,.list_table .white.four,.list_table .white.last{
-	border-right:1px solid #f5f3f1; 
-	border-bottom:1px solid #f5f3f1; 
+	border-right:1px solid #f5f3f1;
+	border-bottom:1px solid #f5f3f1;
 	text-align: center;
 }
 .list_table  .white.two{text-align: center;}

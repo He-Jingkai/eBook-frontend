@@ -120,6 +120,7 @@ export class HeadOfPage extends React.Component{
                         </ul>
                         <ul className="tools-nav">
                             <li><a href="/#/chatRoom">Chat Room</a></li>
+                            <li className="login"><a href="/#/findAuthor">find author</a></li>
                         </ul>
                         <Checkout num={this.state.num} total={this.state.total} />
                     </div>

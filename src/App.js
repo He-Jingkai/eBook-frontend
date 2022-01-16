@@ -16,6 +16,7 @@ import OrderManagementPage from "./view/orderManagement";
 import MaAccountpagefinal from "./view/Newmyaccount";
 import BookManagement from "./view/bookManagement";
 import {ChatRoom} from "./view/ChatRoom";
+import {FindAuthor} from "./view/findAuthor";
 function App() {
   return(
 
@@ -56,6 +57,9 @@ function App() {
           </Route>
           <Route path='/bookmanagement'>
               <BookManagement/>
+          </Route>
+          <Route path='/findAuthor'>
+              <FindAuthor/>
           </Route>
 
           <Route path='/chatRoom'>
